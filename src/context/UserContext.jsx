@@ -1,4 +1,4 @@
-import { updateDoc, doc, collection, getDocs, onSnapshot } from "firebase/firestore";
+import { updateDoc, doc,onSnapshot } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig"; // Firebase config
 import { toast } from "react-toastify";
 import { createContext, useState, useEffect, useContext } from "react";

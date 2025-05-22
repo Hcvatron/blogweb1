@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { toast } from 'react-toastify'; // For success/error notifications
 import { db } from '../../firebase/firebaseConfig'; // Firebase config
 import { doc, setDoc } from 'firebase/firestore'; // Firebase Firestore functions

@@ -4,13 +4,9 @@ import { auth, db } from "../firebase/firebaseConfig";
 import {
   collection,
   getDocs,
-  addDoc,
   deleteDoc,
-  updateDoc,
   doc,
   getDoc,
-  arrayRemove,
-  arrayUnion
 } from "firebase/firestore";
 import { toast } from "react-toastify";
 

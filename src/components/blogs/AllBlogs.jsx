@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./AllBlogs.css";
 import { useNavigate } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";

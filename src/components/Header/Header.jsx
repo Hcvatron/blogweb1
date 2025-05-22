@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faShoppingCart,
-  faPhone,
   faHeadset,
   faUser,
-  faChevronDown,
   faBars,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";

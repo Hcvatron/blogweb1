@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { useAdminContext } from "../../context/AdminContext";
 import "./ManageMessages.css";
 import { toast } from "react-toastify";

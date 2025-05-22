@@ -1,15 +1,10 @@
-import React from "react";
+
 import { useNavigate, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
   faFileAlt,
-  faImage,
-  faReorder,
   faPeopleGroup,
-  faPhotoFilm,
-  faSort,
-  faCar,
   faContactBook,
 } from "@fortawesome/free-solid-svg-icons";
 import "./Nav.css";

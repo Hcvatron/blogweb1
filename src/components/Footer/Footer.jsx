@@ -1,7 +1,7 @@
-import React from "react";
+
 import "./Footer.css";
 import { useNavigate } from "react-router-dom";
-import { FaYoutube, FaXTwitter, FaFacebookF, FaLinkedinIn, FaInstagram, FaTiktok } from "react-icons/fa6";
+import { FaYoutube, FaXTwitter, FaFacebookF, FaLinkedinIn, FaInstagram } from "react-icons/fa6";
 import { useLocalContext } from "../../context/LocalContext";
 
 
