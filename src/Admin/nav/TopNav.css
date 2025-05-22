@@ -1,0 +1,53 @@
+.admin-topnav {
+  width: 100%;
+  background-color: #0f172a;
+  color: #f1f5f9;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #334155;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.admin-topnav-left .brand-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #14b8a6;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.admin-topnav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 15px;
+}
+
+.admin-topnav-right .welcome {
+  font-weight: 500;
+}
+
+.admin-topnav-right .clock {
+  font-family: monospace;
+  color: #a5f3fc;
+}
+
+.logout-btn {
+  background-color: transparent;
+  border: 1px solid #14b8a6;
+  padding: 6px 14px;
+  border-radius: 4px;
+  color: #14b8a6;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: #14b8a6;
+  color: #0f172a;
+}

@@ -1,0 +1,20 @@
+.blog-dash {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .add-blog-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .add-blog-btn:hover {
+    background-color: #45a049;
+  }
+  
+  

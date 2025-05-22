@@ -1,0 +1,108 @@
+.manage-messages {
+  padding: 3rem 2rem;
+  max-width: 1280px;
+  margin: auto;
+  font-family: 'Inter', sans-serif;
+  color: #1f2937;
+}
+
+.manage-messages h2 {
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  color: #111827;
+  border-left: 6px solid #6366f1;
+  padding-left: 1rem;
+}
+
+.manage-messages table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+}
+
+.manage-messages thead {
+  background-color: #f9fafb;
+}
+
+.manage-messages th {
+  text-align: left;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  color: #4b5563;
+  font-weight: 600;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.manage-messages td {
+  padding: 1.1rem 1.5rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 1.1rem;
+  color: #374151;
+  transition: background-color 0.2s ease;
+}
+
+.manage-messages tbody tr:hover td {
+  background-color: #f3f4f6;
+}
+
+.manage-messages td:nth-child(4) {
+  max-width: 380px;
+  word-wrap: break-word;
+}
+
+.manage-messages p {
+  font-size: 1.2rem;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .manage-messages table,
+  .manage-messages thead,
+  .manage-messages tbody,
+  .manage-messages th,
+  .manage-messages td,
+  .manage-messages tr {
+    display: block;
+  }
+
+  .manage-messages thead {
+    display: none;
+  }
+
+  .manage-messages tr {
+    margin-bottom: 1.5rem;
+    background-color: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  .manage-messages td {
+    padding: 0.7rem 1rem;
+    position: relative;
+    padding-left: 55%;
+    font-size: 1.1rem;
+    border: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .manage-messages td::before {
+    position: absolute;
+    top: 0.7rem;
+    left: 1rem;
+    font-weight: 600;
+    color: #6b7280;
+    font-size: 1.05rem;
+    white-space: nowrap;
+  }
+
+  .manage-messages td:nth-child(1)::before { content: "Name"; }
+  .manage-messages td:nth-child(2)::before { content: "Email"; }
+  .manage-messages td:nth-child(3)::before { content: "Phone"; }
+  .manage-messages td:nth-child(4)::before { content: "Message"; }
+  .manage-messages td:nth-child(5)::before { content: "Date"; }
+}

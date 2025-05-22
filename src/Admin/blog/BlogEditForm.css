@@ -1,0 +1,84 @@
+.editblog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    padding: 2rem;
+  }
+  
+  .editblog-form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 1200px;
+  }
+  
+  .blog-form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .blog-form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .blog-form input,
+  .blog-form select,
+  .blog-form .ql-container {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.5rem;
+  }
+  
+  .blog-form select {
+    cursor: pointer;
+  }
+  
+  .image-preview {
+    width: 20%;
+    /* max-height: 800px; */
+    margin-top: 10px;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #218838;
+  }
+  
+
+  .custom-quill {
+    height: 600px !important;  /* Fix the height of the entire editor */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .custom-quill .ql-container {
+    height: 550px !important;  
+    overflow-y: auto;        
+  }
+  
+  .custom-quill .ql-editor {
+    min-height: 500px !important; 
+    max-height: 550px !important;  
+    overflow-y: auto !important;   
+    padding: 10px;                 
+  }
+  
