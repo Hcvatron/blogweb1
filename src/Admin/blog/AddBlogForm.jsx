@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { db } from '../../firebase/firebaseConfig';
 import { collection, addDoc } from 'firebase/firestore';
 import { toast } from 'react-toastify';
@@ -13,6 +13,7 @@ import TextAlign from '@tiptap/extension-text-align';
 
 import './AddBlogForm.css';
 import './TiptapEditor.css';
+import { useAdminContext } from '../../context/AdminContext';
 
 const AddBlogForm = ({ onClose }) => {
   const [title, setTitle] = useState('');
@@ -27,9 +28,22 @@ const AddBlogForm = ({ onClose }) => {
   const [seoTitle, setSeoTitle] = useState('');
   const [seoDescription, setSeoDescription] = useState('');
   const [seoKeywords, setSeoKeywords] = useState('');
+    const [categories, setCategories] = useState([]);
 
   const navigate = useNavigate();
-  const categories = ['Antivirus', 'Printer', 'Windows OS'];
+   const { fetchCategories,addBlogToCategory } = useAdminContext();
+
+     useEffect(() => {
+    const loadCategories = async () => {
+      try {
+        const data = await fetchCategories();
+        setCategories(data);
+      } catch (err) {
+        console.error('Failed to load categories:', err);
+      }
+    };
+    loadCategories();
+  }, [fetchCategories]);
 
   const editor = useEditor({
     extensions: [
@@ -65,56 +79,58 @@ const AddBlogForm = ({ onClose }) => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (!imageBase64 && !imageLink) {
-      toast.error('Please upload an image or provide an image URL');
-      return;
-    }
+  if (!imageBase64 && !imageLink) {
+    toast.error('Please upload an image or provide an image URL');
+    return;
+  }
 
-    if (!category) {
-      toast.error('Please select a category');
-      return;
-    }
+  if (!category) {
+    toast.error('Please select a category');
+    return;
+  }
 
-    const formattedTitle = formatTitleForURL(title);
+  const formattedTitle = formatTitleForURL(title);
 
-    try {
-      const blogRef = collection(db, '_blogs');
-      await addDoc(blogRef, {
-        title,
-        content,
-        imageBase64,
-        imageLink,
-        category,
-        createdAt: new Date(),
-        formattedDate: date,
-        author,
-        urlSlug: formattedTitle,
-        seoTitle,
-        seoDescription,
-        seoKeywords: seoKeywords.split(',').map(k => k.trim()).join(', '),
-      });
-
-      toast.success('Blog added successfully!');
-
-      setTitle('');
-      setContent('');
-      setImage(null);
-      setImageBase64('');
-      setCategory('');
-      setDate('');
-      setAuthor('');
-      setLink('');
-      setImageLink('');
-      setSeoTitle('');
-      setSeoDescription('');
-      setSeoKeywords('');
-      editor?.commands.setContent('');
-    } catch (err) {
-      toast.error('Error uploading blog: ' + err.message);
-    }
+  const blogData = {
+    title,
+    content,
+    imageBase64,
+    imageLink,
+    category,
+    createdAt: new Date(),
+    formattedDate: date,
+    author,
+    urlSlug: formattedTitle,
+    seoTitle,
+    seoDescription,
+    seoKeywords: seoKeywords.split(',').map(k => k.trim()).join(', '),
   };
+
+  try {
+    // 🔥 Use context function
+    await addBlogToCategory(category, blogData);
+    toast.success('Blog added successfully!');
+
+    setTitle('');
+    setContent('');
+    setImage(null);
+    setImageBase64('');
+    setCategory('');
+    setDate('');
+    setAuthor('');
+    setLink('');
+    setImageLink('');
+    setSeoTitle('');
+    setSeoDescription('');
+    setSeoKeywords('');
+    editor?.commands.setContent('');
+  } catch (err) {
+    toast.error('Error uploading blog: ' + err.message);
+  }
+};
+
 
   return (
     <div className="addblog">
@@ -162,9 +178,12 @@ const AddBlogForm = ({ onClose }) => {
               required
             >
               <option value="">Select a category</option>
-              {categories.map((cat, index) => (
-                <option key={index} value={cat}>{cat}</option>
-              ))}
+              {categories.map((cat) => (
+  <option key={cat.id} value={cat.id}>
+    {cat.name}
+  </option>
+))}
+
             </select>
           </div>
 
